@@ -10,22 +10,22 @@ namespace LivePerformance.Logic
 {
     public class ArtikelRepository
     {
-        private readonly IIngredientContext ingredientcontext;
-        private readonly IPizzaContext pizzacontext;
-        private readonly IProductContext productcontext;
+        private readonly IIngredientContext _ingredientcontext;
+        private readonly IPizzaContext _pizzacontext;
+        private readonly IProductContext _productcontext;
 
         public ArtikelRepository(IIngredientContext ingredientcontext, IProductContext productcontext, IPizzaContext pizzacontext)
         {
-            this.ingredientcontext = ingredientcontext;
-            this.pizzacontext = pizzacontext;
-            this.productcontext = productcontext;
+            this._ingredientcontext = ingredientcontext;
+            this._pizzacontext = pizzacontext;
+            this._productcontext = productcontext;
         }
         public List<Artikel> GetAllArtikel()
         {
             List<Artikel> artikelen = new List<Artikel>();
-            artikelen.AddRange(ingredientcontext.GetAllIngredienten());
-            artikelen.AddRange(pizzacontext.GetAllPizzas());
-            artikelen.AddRange(productcontext.GetAllProducts());
+            artikelen.AddRange(_ingredientcontext.GetAllIngredienten());
+            artikelen.AddRange(_pizzacontext.GetAllPizzas());
+            artikelen.AddRange(_productcontext.GetAllProducts());
 
             return artikelen;
         }

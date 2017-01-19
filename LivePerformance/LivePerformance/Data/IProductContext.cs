@@ -13,5 +13,7 @@ namespace LivePerformance.Data
         void AddProduct(string naam, decimal inkoopprijs, decimal verkoopprijs, int alcoholpercentage);
         void DeleteProduct(int id);
         void UpdateProduct(int id, string naam, decimal inkoopprijs, decimal verkoopprijs, int alcoholpercentage);
+        void CheckProduct(string naam, decimal inkoopprijs, decimal verkoopprijs, int alcoholpercentage);
+        int GetProductId(string naam, decimal inkoopprijs, decimal verkoopprijs, int alcoholpercentage);
     }
 }

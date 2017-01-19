@@ -8,14 +8,14 @@ namespace LivePerformance.Models
 {
     public abstract class Artikel
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string Naam { get; set; }
         public decimal Inkoopprijs { get; set; }
         public decimal Verkoopprijs { get; set; }
 
         protected Artikel(int id, string naam, decimal inkoopprijs, decimal verkoopprijs)
         {
-            ID = id;
+            Id = id;
             Naam = naam;
             Inkoopprijs = inkoopprijs;
             Verkoopprijs = verkoopprijs;
@@ -28,7 +28,7 @@ namespace LivePerformance.Models
         /// <param name="naam"></param>
         protected Artikel(int id, string naam)
         {
-            ID = id;
+            Id = id;
             Naam = naam;
         }
 

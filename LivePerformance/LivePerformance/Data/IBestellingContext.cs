@@ -10,5 +10,6 @@ namespace LivePerformance.Data
     public interface IBestellingContext
     {
         Bestelling GetBestellingbyId(int id);
+        void AddBestelling();
     }
 }

@@ -52,15 +52,30 @@
     <Compile Include="ArtikelenForm.Designer.cs">
       <DependentUpon>ArtikelenForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BestelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BestelForm.Designer.cs">
+      <DependentUpon>BestelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BestellingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BestellingForm.Designer.cs">
+      <DependentUpon>BestellingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Data\IBestellingContext.cs" />
     <Compile Include="Data\IIngredientContext.cs" />
     <Compile Include="Data\IKlantContext.cs" />
     <Compile Include="Data\IPizzaContext.cs" />
     <Compile Include="Data\IProductContext.cs" />
+    <Compile Include="Data\MssqlBestellingContext.cs" />
     <Compile Include="Data\MssqlDatabase.cs" />
     <Compile Include="Data\MssqlIngredientContext.cs" />
     <Compile Include="Data\MssqlPizzaContext.cs" />
     <Compile Include="Data\MssqlProductContext.cs" />
+    <Compile Include="Exceptions\ProductBestaatAlException.cs" />
+    <Compile Include="Exceptions\ProductBestaatNietException.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,13 +93,37 @@
     <Compile Include="Models\Pizza.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Vorm.cs" />
+    <Compile Include="PizzaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PizzaForm.Designer.cs">
+      <DependentUpon>PizzaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductForm.Designer.cs">
+      <DependentUpon>ProductForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ArtikelenForm.resx">
       <DependentUpon>ArtikelenForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BestelForm.resx">
+      <DependentUpon>BestelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BestellingForm.resx">
+      <DependentUpon>BestellingForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PizzaForm.resx">
+      <DependentUpon>PizzaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductForm.resx">
+      <DependentUpon>ProductForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -108,9 +147,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Exceptions\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

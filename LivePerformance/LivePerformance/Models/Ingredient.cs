@@ -11,13 +11,15 @@ namespace LivePerformance.Models
         public bool Halal { get; set; }
         public bool Veganistisch { get; set; }
         public bool Glutenvrij { get; set; }
+        public bool Bodem { get; set; }
 
-        public Ingredient(int id, string naam, decimal inkoopprijs, decimal verkoopprijs, bool halal, bool veganistisch, bool glutenvrij)
+        public Ingredient(int id, string naam, decimal inkoopprijs, decimal verkoopprijs, bool halal, bool veganistisch, bool glutenvrij, bool bodem)
             : base(id, naam, inkoopprijs, verkoopprijs)
         {
             Halal = halal;
             Veganistisch = veganistisch;
             Glutenvrij = glutenvrij;
+            Bodem = bodem;
         }
 
         public override string ToString()

@@ -10,6 +10,10 @@ namespace LivePerformance.Data
 {
     public class MssqlPizzaContext : MssqlDatabase, IPizzaContext
     {
+        /// <summary>
+        /// dit haalt alle standaard pizzas op
+        /// </summary>
+        /// <returns></returns>
         public List<Pizza> GetAllPizzas()
         {
             string query = @"select p.ID, p.Naam, Oppervlakte, Standaardpizza, Korting, v.Naam 
@@ -103,6 +107,33 @@ namespace LivePerformance.Data
                     conn.Open();
 
                     cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public int GetPizzaId(int vormid, string naam, int oppervlakte, bool standaardpizza)
+        {
+            string query = @"select p.ID
+                             from PIZZA p
+                             where p.Standaardpizza = @standaardpizza and p.Vorm_ID = @vormid and p.Naam = @naam and p.Oppervlakte = @oppervlakte";
+
+            using (SqlConnection conn = new SqlConnection(Connstring))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@vormid", vormid);
+                    cmd.Parameters.AddWithValue("@naam", naam);
+                    cmd.Parameters.AddWithValue("@oppervlakte", oppervlakte);
+                    cmd.Parameters.AddWithValue("@standaardpizza", standaardpizza);
+                    conn.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            return reader.GetInt32(0);
+                        }
+                        throw new Exception("Pizza is niet gevonden");
+                    }
                 }
             }
         }

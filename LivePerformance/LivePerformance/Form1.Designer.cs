@@ -43,6 +43,7 @@
             this.btnBestel.TabIndex = 0;
             this.btnBestel.Text = "Bestel";
             this.btnBestel.UseVisualStyleBackColor = true;
+            this.btnBestel.Click += new System.EventHandler(this.btnBestel_Click);
             // 
             // btnArtikelen
             // 

@@ -10,8 +10,9 @@ namespace LivePerformance.Data
     public interface IIngredientContext
     {
         List<Ingredient> GetAllIngredienten();
-        void AddIngredient(string naam, decimal inkoopprijs, decimal verkoopprijs, bool halal, bool veganistisch, bool glutenvrij);
+        List<Ingredient> GetAllBodem();
+        void AddIngredient(string naam, decimal inkoopprijs, decimal verkoopprijs, bool halal, bool veganistisch, bool glutenvrij, bool bodem);
         void DeleteIngredient(int id);
-        void UpdateIngredient(int id, string naam, decimal inkoopprijs, decimal verkoopprijs, bool halal, bool veganistisch, bool glutenvrij);
+        void UpdateIngredient(int id, string naam, decimal inkoopprijs, decimal verkoopprijs, bool halal, bool veganistisch, bool glutenvrij, bool bodem);
     }
 }

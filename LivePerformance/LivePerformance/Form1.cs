@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LivePerformance
@@ -19,9 +12,14 @@ namespace LivePerformance
 
         private void btnArtikelen_Click(object sender, EventArgs e)
         {
-            this.Hide();
             ArtikelenForm artikelform = new ArtikelenForm();
             artikelform.Show();
+        }
+
+        private void btnBestel_Click(object sender, EventArgs e)
+        {
+            BestelForm bestelform = new BestelForm();
+            bestelform.Show();
         }
     }
 }

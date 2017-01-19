@@ -55,6 +55,7 @@
             this.btnProductToevoegen.TabIndex = 1;
             this.btnProductToevoegen.Text = "Product Toevoegen";
             this.btnProductToevoegen.UseVisualStyleBackColor = true;
+            this.btnProductToevoegen.Click += new System.EventHandler(this.btnProductToevoegen_Click);
             // 
             // btnIngredientToeveogen
             // 
@@ -73,6 +74,7 @@
             this.btnPizzaToevoegen.TabIndex = 3;
             this.btnPizzaToevoegen.Text = "Pizza Toevoegen";
             this.btnPizzaToevoegen.UseVisualStyleBackColor = true;
+            this.btnPizzaToevoegen.Click += new System.EventHandler(this.btnPizzaToevoegen_Click);
             // 
             // btnArtikelWijzigen
             // 
@@ -82,6 +84,7 @@
             this.btnArtikelWijzigen.TabIndex = 4;
             this.btnArtikelWijzigen.Text = "Artikel Wijzigen";
             this.btnArtikelWijzigen.UseVisualStyleBackColor = true;
+            this.btnArtikelWijzigen.Click += new System.EventHandler(this.btnArtikelWijzigen_Click);
             // 
             // btnArtikelVerwijderen
             // 
@@ -91,6 +94,7 @@
             this.btnArtikelVerwijderen.TabIndex = 5;
             this.btnArtikelVerwijderen.Text = "Artikel Verwijderen";
             this.btnArtikelVerwijderen.UseVisualStyleBackColor = true;
+            this.btnArtikelVerwijderen.Click += new System.EventHandler(this.btnArtikelVerwijderen_Click);
             // 
             // btnProducten
             // 
@@ -110,6 +114,7 @@
             this.btnPizza.TabIndex = 7;
             this.btnPizza.Text = "Pizzas";
             this.btnPizza.UseVisualStyleBackColor = true;
+            this.btnPizza.Click += new System.EventHandler(this.btnPizza_Click);
             // 
             // btnIngredienten
             // 
@@ -119,6 +124,7 @@
             this.btnIngredienten.TabIndex = 8;
             this.btnIngredienten.Text = "Ingredienten";
             this.btnIngredienten.UseVisualStyleBackColor = true;
+            this.btnIngredienten.Click += new System.EventHandler(this.btnIngredienten_Click);
             // 
             // ArtikelenForm
             // 

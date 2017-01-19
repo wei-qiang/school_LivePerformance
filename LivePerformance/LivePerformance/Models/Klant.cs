@@ -8,14 +8,14 @@ namespace LivePerformance.Models
 {
     public class Klant
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string Naam { get; set; }
         public string Adres { get; set; }
         public int Klantnummer { get; set; }
 
         public Klant(int id, string naam, string adres, int klantnummer)
         {
-            ID = id;
+            Id = id;
             Naam = naam;
             Adres = adres;
             Klantnummer = klantnummer;

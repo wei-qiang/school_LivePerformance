@@ -12,7 +12,7 @@ namespace LivePerformance.Data
     {
         public List<Ingredient> GetAllIngredienten()
         {
-            string query = "select ID, Naam, Inkoopprijs, Verkoopprijs, Halal, Veganistisch, Glutenvrij from INGREDIENT";
+            string query = "select ID, Naam, Inkoopprijs, Verkoopprijs, Halal, Veganistisch, Glutenvrij, Bodem from INGREDIENT where Bodem = 0";
             List<Ingredient> ingredienten = new List<Ingredient>();
 
             using (SqlConnection conn = new SqlConnection(Connstring))
@@ -30,7 +30,36 @@ namespace LivePerformance.Data
                                 reader.GetDecimal(3),
                                 reader.GetBoolean(4),
                                 reader.GetBoolean(5),
-                                reader.GetBoolean(6)));
+                                reader.GetBoolean(6),
+                                reader.GetBoolean(7)));
+                        }
+                        return ingredienten;
+                    }
+                }
+            }
+        }
+        public List<Ingredient> GetAllBodem()
+        {
+            string query = "select ID, Naam, Inkoopprijs, Verkoopprijs, Halal, Veganistisch, Glutenvrij, Bodem from INGREDIENT where Bodem = 1";
+            List<Ingredient> ingredienten = new List<Ingredient>();
+
+            using (SqlConnection conn = new SqlConnection(Connstring))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    conn.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            ingredienten.Add(new Ingredient(reader.GetInt32(0),
+                                reader.GetString(1),
+                                reader.GetDecimal(2),
+                                reader.GetDecimal(3),
+                                reader.GetBoolean(4),
+                                reader.GetBoolean(5),
+                                reader.GetBoolean(6),
+                                reader.GetBoolean(7)));
                         }
                         return ingredienten;
                     }
@@ -38,10 +67,10 @@ namespace LivePerformance.Data
             }
         }
 
-        public void AddIngredient(string naam, decimal inkoopprijs, decimal verkoopprijs, bool halal, bool veganistisch, bool glutenvrij)
+        public void AddIngredient(string naam, decimal inkoopprijs, decimal verkoopprijs, bool halal, bool veganistisch, bool glutenvrij, bool bodem)
         {
-            string query = @"insert into INGREDIENT(Naam, Inkoopprijs, Verkoopprijs, Halal, Veganistisch, Glutenvrij)
-                             values (@naam, @inkoopprijs, @verkoopprijs, @halal, @veganistisch, @glutenvrij); ";
+            string query = @"insert into INGREDIENT(Naam, Inkoopprijs, Verkoopprijs, Halal, Veganistisch, Glutenvrij, Bodem)
+                             values (@naam, @inkoopprijs, @verkoopprijs, @halal, @veganistisch, @glutenvrij, @bodem)";
 
             using (SqlConnection conn = new SqlConnection(Connstring))
             {
@@ -53,6 +82,7 @@ namespace LivePerformance.Data
                     cmd.Parameters.AddWithValue("@halal", halal);
                     cmd.Parameters.AddWithValue("@veganistisch", veganistisch);
                     cmd.Parameters.AddWithValue("@glutenvrij", glutenvrij);
+                    cmd.Parameters.AddWithValue("@bodem", bodem);
                     conn.Open();
 
                     cmd.ExecuteNonQuery();
@@ -74,10 +104,10 @@ namespace LivePerformance.Data
             }
         }
 
-        public void UpdateIngredient(int id, string naam, decimal inkoopprijs, decimal verkoopprijs, bool halal, bool veganistisch, bool glutenvrij)
+        public void UpdateIngredient(int id, string naam, decimal inkoopprijs, decimal verkoopprijs, bool halal, bool veganistisch, bool glutenvrij, bool bodem)
         {
             string query = @"update Ingredient 
-                           set Naam = @naam, Inkoopprijs = @inkoopprijs, Verkoopprijs = @verkoopprijs, Halal = @halal, Veganistisch = @veganistisch, Glutenvrij = @glutenvrij
+                           set Naam = @naam, Inkoopprijs = @inkoopprijs, Verkoopprijs = @verkoopprijs, Halal = @halal, Veganistisch = @veganistisch, Glutenvrij = @glutenvrij, Bodem = @bodem
                            where ID = @id";
             using (SqlConnection conn = new SqlConnection(Connstring))
             {
@@ -90,6 +120,7 @@ namespace LivePerformance.Data
                     cmd.Parameters.AddWithValue("@halal", halal);
                     cmd.Parameters.AddWithValue("@veganistisch", veganistisch);
                     cmd.Parameters.AddWithValue("@glutenvrij", glutenvrij);
+                    cmd.Parameters.AddWithValue("@bodem", bodem);
                     conn.Open();
                     cmd.ExecuteNonQuery();
                 }
