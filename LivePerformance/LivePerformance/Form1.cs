@@ -16,5 +16,12 @@ namespace LivePerformance
         {
             InitializeComponent();
         }
+
+        private void btnArtikelen_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ArtikelenForm artikelform = new ArtikelenForm();
+            artikelform.Show();
+        }
     }
 }

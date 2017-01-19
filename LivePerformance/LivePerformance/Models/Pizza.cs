@@ -14,14 +14,19 @@ namespace LivePerformance.Models
         public Vorm Vorm { get; set; }
         public List<Ingredient> Ingredienten { get; set; }
 
-        public Pizza(int id, string naam, decimal prijs, int btw, int oppervlakte, bool standaardpizza, int korting, Vorm vorm, List<Ingredient> ingredienten)
-            : base(id, naam, prijs, btw)
+        public Pizza(int id, string naam, int oppervlakte, bool standaardpizza, int korting, Vorm vorm)
+            : base(id, naam)
         {
             Oppervlakte = oppervlakte;
             Standaardpizza = standaardpizza;
             Korting = korting;
             Vorm = vorm;
-            Ingredienten = ingredienten;
+           // Ingredienten = repo.get;
+        }
+
+        public override string ToString()
+        {
+            return string.Format("Standaard Pizza: {0} {1} {2}", Naam, Vorm, Oppervlakte);
         }
     }
 }

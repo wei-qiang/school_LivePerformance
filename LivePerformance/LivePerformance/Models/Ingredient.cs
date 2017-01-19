@@ -12,12 +12,32 @@ namespace LivePerformance.Models
         public bool Veganistisch { get; set; }
         public bool Glutenvrij { get; set; }
 
-        public Ingredient(int id, string naam, decimal prijs, int btw, bool halal, bool veganistisch, bool glutenvrij)
-            : base(id, naam, prijs, btw)
+        public Ingredient(int id, string naam, decimal inkoopprijs, decimal verkoopprijs, bool halal, bool veganistisch, bool glutenvrij)
+            : base(id, naam, inkoopprijs, verkoopprijs)
         {
             Halal = halal;
             Veganistisch = veganistisch;
             Glutenvrij = glutenvrij;
+        }
+
+        public override string ToString()
+        {
+            string halal = "";
+            string veganistisch = "";
+            string glutenvrij = "";
+            if (Halal)
+            {
+                halal = "halal";
+            }
+            if (Veganistisch)
+            {
+                veganistisch = "veganistisch";
+            }
+            if (Glutenvrij)
+            {
+                glutenvrij = "glutenvrij";
+            }
+            return string.Format("Ingredient: {0} {1} {2} {3} | Prijs: {4}", Naam, halal, veganistisch, glutenvrij, BerekenPrijs());
         }
 
     }

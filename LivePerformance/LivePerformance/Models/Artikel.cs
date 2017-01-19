@@ -10,15 +10,31 @@ namespace LivePerformance.Models
     {
         public int ID { get; set; }
         public string Naam { get; set; }
-        public decimal Prijs { get; set; }
-        public int BTW { get; set; }
+        public decimal Inkoopprijs { get; set; }
+        public decimal Verkoopprijs { get; set; }
 
-        public Artikel(int id, string naam, decimal prijs, int btw)
+        protected Artikel(int id, string naam, decimal inkoopprijs, decimal verkoopprijs)
         {
             ID = id;
             Naam = naam;
-            Prijs = prijs;
-            BTW = btw;
+            Inkoopprijs = inkoopprijs;
+            Verkoopprijs = verkoopprijs;
+        }
+
+        /// <summary>
+        /// deze constructor is voor de pizza omdat de prijs van een pizza lokaal wordt berekend
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="naam"></param>
+        protected Artikel(int id, string naam)
+        {
+            ID = id;
+            Naam = naam;
+        }
+
+        public virtual decimal BerekenPrijs()
+        {
+            return Verkoopprijs * (decimal)0.06 + Verkoopprijs;
         }
     }
 }

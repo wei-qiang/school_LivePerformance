@@ -10,6 +10,6 @@ namespace LivePerformance.Models
     {
         Rond,
         Rechthoek,
-        Driehoek
+        Driehoek,
     }
 }

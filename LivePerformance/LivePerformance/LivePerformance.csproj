@@ -46,16 +46,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\IArtikelContext.cs" />
+    <Compile Include="ArtikelenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ArtikelenForm.Designer.cs">
+      <DependentUpon>ArtikelenForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Data\IBestellingContext.cs" />
+    <Compile Include="Data\IIngredientContext.cs" />
     <Compile Include="Data\IKlantContext.cs" />
+    <Compile Include="Data\IPizzaContext.cs" />
+    <Compile Include="Data\IProductContext.cs" />
     <Compile Include="Data\MssqlDatabase.cs" />
+    <Compile Include="Data\MssqlIngredientContext.cs" />
+    <Compile Include="Data\MssqlPizzaContext.cs" />
+    <Compile Include="Data\MssqlProductContext.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Logic\ArtikelRepository.cs" />
+    <Compile Include="Logic\IngredientRepository.cs" />
+    <Compile Include="Logic\PizzaRepository.cs" />
+    <Compile Include="Logic\ProductRepository.cs" />
     <Compile Include="Models\Artikel.cs" />
     <Compile Include="Models\Bestelling.cs" />
     <Compile Include="Models\Ingredient.cs" />
@@ -65,6 +80,12 @@
     <Compile Include="Models\Vorm.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ArtikelenForm.resx">
+      <DependentUpon>ArtikelenForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -89,7 +110,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Exceptions\" />
-    <Folder Include="Logic\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
